@@ -1,5 +1,4 @@
 #version 430 core
-#include "Utils.glsl"
 
 //#version 430 core
 //
@@ -12,11 +11,25 @@
 //    fragColor = vec4(vuv, sin(time) * .5 + .5, 1.0f);
 //}
 
+#define BUFFER_SIZE 512
+#define TEST 0
 
 in vec2 vuv;
 uniform float time;
 uniform vec2 resolution;
+uniform vec2 volume;
+uniform float[] sound_buffer_left;
+uniform float[] sound_buffer_right;
+uniform float sound_spectro_left[BUFFER_SIZE];
+uniform float sound_spectro_right[BUFFER_SIZE];
+
+uniform sampler1D leftFreq;
+uniform sampler1D rightFreq;
+
+//uniform sampler1D freqLeft;
+//uniform sampler1D freqRight;
 out vec4 fragColor;
+
 
 //float map(vec3 p) {
 //	vec3 n = vec3(0, 1, 0);
@@ -178,7 +191,7 @@ vec3 intersect(in vec3 ro, in vec3 rd)
 		        }
 		        else
 		        {
-			        step = -os; os = 0.0; pd = 100.0; d = 1.0;
+			        step = -os; os = 0.0; pd = 2.0; d = 1.0;
 		        }
 
 		        error = d / t;
@@ -200,7 +213,25 @@ vec3 intersect(in vec3 ro, in vec3 rd)
 
 void main()
 {
-	vec2 q = vuv;
+	vec4 cl = vec4(1.0, 0.0, 0.0, 1);
+	vec4 cr = vec4(0.0, 0.0, 1.0, 1);
+
+	float indexf = vuv.x * float(BUFFER_SIZE);
+	int index = int(floor(indexf));
+	float ampl = float(sound_spectro_left[index]);
+	float ampr = float(sound_spectro_right[index]);
+
+	fragColor = ampl * cl.xyzw + ampr * cr.xyzw;
+
+	//float sampL = texture(leftFreq, vuv.x).r;// + texture1D(freqRight, vuv.x) * cr;
+	//float sampR = texture(rightFreq, vuv.x * 512.0f).r;
+	//
+	//fragColor = sampL * cl + sampR * cr;
+
+
+
+	#if(TEST == 1)
+    vec2 q = vuv;
 	vec2 uv = -1.0 + 2.0 * q;
 	uv.x *= resolution.x / resolution.y;
 
@@ -248,7 +279,7 @@ void main()
 
 		res.y = pow(clamp(res.y, 0.0, 1.0), 0.55);
 		vec3 tc0 = 0.5 + 0.5 * sin(3.0 + 4.2 * res.y + vec3(0.0, 0.5, 1.0));
-		col = lin * vec3(0.9, 0.8, 0.6) * 0.2 * tc0;
+		col = lin * (volume.x * vec3(1.0, 0.0, 0.0) + volume.y * vec3(0.0, 0.0, 1.0)) * 0.2 * tc0;
 		col = mix(col, bg, 1.0 - exp(-0.001 * res.x * res.x));
 	}
 
@@ -258,4 +289,5 @@ void main()
 	col = mix(col, vec3(dot(col, vec3(0.33))), -0.5);  // satuation
 	col *= 0.5 + 0.5 * pow(16.0 * q.x * q.y * (1.0 - q.x) * (1.0 - q.y), 0.7);  // vigneting
 	fragColor = vec4(col.xyz, smoothstep(0.55, .76, 1. - res.x / 5.));
+	#endif 
 }
