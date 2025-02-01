@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "global_statics.h"
+
 void PrintDevice(const PaDeviceInfo* deviceInfo, int index)
 {
     const std::string stringName = deviceInfo->name;
@@ -18,13 +20,17 @@ void PrintDevice(const PaDeviceInfo* deviceInfo, int index)
     std::cout << '\t' << "default high output latency: " << deviceInfo->defaultHighOutputLatency << '\n';
 }
 
+
+
 void PrintHostApi(const PaHostApiInfo* hostApiInfo, int index)
 {
     std::cout << "Host Api " << index << (Pa_GetDefaultHostApi() == index ? " (Default)" : "") << ":\n";
     std::cout << '\t' << "name: " << hostApiInfo->name << '\n';
     std::cout << '\t' << "type: " << hostApiInfo->type << '\n';
-    std::cout << '\t' << "default in: " << Pa_GetDeviceInfo(hostApiInfo->defaultInputDevice)->name << '\n';
-    std::cout << '\t' << "default out: " << Pa_GetDeviceInfo(hostApiInfo->defaultOutputDevice)->name << '\n';
+    if (hostApiInfo->defaultInputDevice)
+        std::cout << '\t' << "default in: " << Pa_GetDeviceInfo(hostApiInfo->defaultInputDevice)->name << '\n';
+    if (hostApiInfo->defaultOutputDevice)
+        std::cout << '\t' << "default out: " << Pa_GetDeviceInfo(hostApiInfo->defaultOutputDevice)->name << '\n';
 }
 
 void GetLogs(GLuint shader)
@@ -45,5 +51,18 @@ void GetLogs(GLuint shader)
         auto info = static_cast<char*>(malloc(logLength));
         glGetShaderInfoLog(shader, logLength, &logLength, info);
         std::cerr << info << '\n';
+    }
+}
+
+void GLFW_ErrorCallback(int error, const char* description)
+{
+    std::cerr << "GLFW Error:\n\t" << error << "\n\t" << description << '\n';
+}
+
+void processAndLogAudioErrorIfAny(PaError error)
+{
+    if (error != paNoError)
+    {
+        std::cerr << "PortAudio error:\n" << Pa_GetErrorText(error) << '\n';
     }
 }

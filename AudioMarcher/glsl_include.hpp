@@ -24,8 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef _GLSL_INCLUDE_H
-#define _GLSL_INCLUDE_H
+#pragma once
 
 //################
 //### Includes ###
@@ -41,11 +40,11 @@ SOFTWARE.
 //####################
 //### Declarations ###
 //####################
-namespace glsl_include {
-
-    class ShaderLoader {
+namespace glsl_include
+{
+    class ShaderLoader
+    {
     public:
-
         /**
          *  Init once, load any GLSL shader files by calling load_shader()
          * 
@@ -69,7 +68,8 @@ namespace glsl_include {
         {
             // If size is 0, it indicates, that we are at the top of the recursive load stack
             bool stack_top = (already_included.size() == 0);
-            if (stack_top) {
+            if (stack_top)
+            {
                 already_included.emplace_back(file_path);
             }
 
@@ -91,39 +91,40 @@ namespace glsl_include {
                         // Get path between double quotes
                         std::string rel_include_path = extract_first_between(line.substr(include_keyword.length()), '"', '"');
                         // Modify path according to os
-                        #ifdef _WIN32
-                            std::replace(rel_include_path.begin(), rel_include_path.end(), '/', '\\');
-                        #elif __linux__
+#ifdef _WIN32
+                        std::replace(rel_include_path.begin(), rel_include_path.end(), '/', '\\');
+#elif __linux__
                             std::replace(rel_include_path.begin(), rel_include_path.end(), '\\', '/');
-                        #endif
+#endif
                         std::string full_include_path = extract_path(file_path) + rel_include_path;
 
                         // Avoid including self
-                        if (file_path == full_include_path) {            
-                            std::cout << "WARNING [ ShaderLoader::load_shader ]: '"<< file_path <<"' tried to include itself\n";
+                        if (file_path == full_include_path)
+                        {
+                            std::cout << "WARNING [ ShaderLoader::load_shader ]: '" << file_path << "' tried to include itself\n";
                             continue;
                         }
-                        else {
-                            bool include_flag = true;
-                            // Check if current file already included
-                            for (const auto& file_to_check : already_included)
+                        bool include_flag = true;
+                        // Check if current file already included
+                        for (const auto& file_to_check : already_included)
+                        {
+                            // Avoid duplicate includes
+                            if (file_to_check == full_include_path)
                             {
-                                // Avoid duplicate includes
-                                if (file_to_check == full_include_path) {
-                                    include_flag = false;
-                                    break;
-                                }
-                            }
-                            // If not yet included, push path to include vector and replace line with file contest
-                            if (include_flag)
-                            {
-                                already_included.push_back(full_include_path);
-                                // Repeat recurively
-                                ret_data += load_shader(full_include_path) + "\n";
+                                include_flag = false;
+                                break;
                             }
                         }
+                        // If not yet included, push path to include vector and replace line with file contest
+                        if (include_flag)
+                        {
+                            already_included.push_back(full_include_path);
+                            // Repeat recurively
+                            ret_data += load_shader(full_include_path) + "\n";
+                        }
                     }
-                    else {
+                    else
+                    {
                         ret_data += line + "\n";
                     }
                 }
@@ -134,7 +135,8 @@ namespace glsl_include {
                 std::cout << "ERROR [ ShaderLoader::load_shader ]: Unable to open file '" << file_path << "'\n";
             }
             // We are back to the first call
-            if (stack_top) {
+            if (stack_top)
+            {
                 already_included.clear();
             }
             return ret_data;
@@ -158,10 +160,11 @@ namespace glsl_include {
         {
             // Find the position of the last directory separator
             std::size_t pos = path.find_last_of("\\/");
-            
+
             // Strip fname from path
-            if (pos != std::string::npos) {
-                return path.substr(0, pos+1);
+            if (pos != std::string::npos)
+            {
+                return path.substr(0, pos + 1);
             }
             return "";
         }
@@ -195,4 +198,3 @@ namespace glsl_include {
         }
     };
 }
-#endif

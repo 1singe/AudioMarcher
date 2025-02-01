@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{132D4463-8D8C-46E5-A2FF-BC2197415111}|AudioMarcher.vcxproj|C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\imgui\\backends\\imgui_impl_glfw.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{132D4463-8D8C-46E5-A2FF-BC2197415111}|AudioMarcher.vcxproj|solutionrelative:imgui\\backends\\imgui_impl_glfw.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\imgui\\misc\\freetype\\imgui_freetype.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imgui\\misc\\freetype\\imgui_freetype.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{132D4463-8D8C-46E5-A2FF-BC2197415111}|AudioMarcher.vcxproj|C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{132D4463-8D8C-46E5-A2FF-BC2197415111}|AudioMarcher.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -19,15 +27,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "imgui_impl_glfw.cpp",
+              "DocumentMoniker": "C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\imgui\\backends\\imgui_impl_glfw.cpp",
+              "RelativeDocumentMoniker": "imgui\\backends\\imgui_impl_glfw.cpp",
+              "ToolTip": "C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\imgui\\backends\\imgui_impl_glfw.cpp",
+              "RelativeToolTip": "imgui\\backends\\imgui_impl_glfw.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-25T04:00:01.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "imgui_freetype.cpp",
+              "DocumentMoniker": "C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\imgui\\misc\\freetype\\imgui_freetype.cpp",
+              "RelativeDocumentMoniker": "imgui\\misc\\freetype\\imgui_freetype.cpp",
+              "ToolTip": "C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\imgui\\misc\\freetype\\imgui_freetype.cpp",
+              "RelativeToolTip": "imgui\\misc\\freetype\\imgui_freetype.cpp",
+              "ViewState": "AgIAABwAAAAAAAAAAAASwCoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-25T03:38:48.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\foura\\Documents\\Visualizer\\AudioMarcher\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAQwKwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAQwKwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-22T16:53:15.741Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T16:53:15.741Z"
             }
           ]
         }

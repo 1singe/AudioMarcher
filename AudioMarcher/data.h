@@ -7,14 +7,16 @@ struct Spectrogram
 {
     double* input;
     double* output;
-    double* normalizedOutput;
+    float* lastProcessedOutput;
+    float* processedOutput;
     fftw_plan p;
 
-    Spectrogram(int bufferSize)
+    Spectrogram(const int bufferSize)
     {
         input = new double[bufferSize];
         output = new double[bufferSize];
-        normalizedOutput = new double[bufferSize];
+        processedOutput = new float[bufferSize];
+        lastProcessedOutput = new float[bufferSize](0);
         p = fftw_plan_r2r_1d(bufferSize, input, output, FFTW_R2HC, FFTW_ESTIMATE);
     }
 
@@ -22,7 +24,8 @@ struct Spectrogram
     {
         delete(input);
         delete(output);
-        delete(normalizedOutput);
+        delete(processedOutput);
+        delete(lastProcessedOutput);
         fftw_destroy_plan(p);
     }
 };

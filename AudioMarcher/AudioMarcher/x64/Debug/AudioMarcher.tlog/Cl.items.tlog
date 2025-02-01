@@ -1,3 +1,14 @@
+C:\Users\foura\Documents\Visualizer\AudioMarcher\edit_window.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\edit_window.obj
 C:\Users\foura\Documents\Visualizer\AudioMarcher\glad.c;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\glad.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\imgui\backends\imgui_impl_glfw.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\imgui_impl_glfw.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\imgui\backends\imgui_impl_opengl3.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\imgui_impl_opengl3.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\imgui\imgui.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\imgui.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\imgui\imgui_demo.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\imgui_demo.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\imgui\imgui_draw.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\imgui_draw.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\imgui\imgui_tables.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\imgui_tables.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\imgui\imgui_widgets.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\imgui_widgets.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\input_manager.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\input_manager.obj
 C:\Users\foura\Documents\Visualizer\AudioMarcher\main.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\main.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\shader_loading.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\shader_loading.obj
+C:\Users\foura\Documents\Visualizer\AudioMarcher\sound_processing.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\sound_processing.obj
 C:\Users\foura\Documents\Visualizer\AudioMarcher\utils.cpp;C:\Users\foura\Documents\Visualizer\AudioMarcher\AudioMarcher\x64\Debug\utils.obj

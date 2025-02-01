@@ -1,1 +1,23 @@
-﻿  AudioMarcher.vcxproj -> C:\Users\foura\Documents\Visualizer\AudioMarcher\x64\Debug\AudioMarcher.exe
+﻿  edit_window.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  input_manager.cpp
+  main.cpp
+  shader_loading.cpp
+C:\Users\foura\Documents\Visualizer\AudioMarcher\shader_loading.cpp(31,17): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+C:\Users\foura\Documents\Visualizer\AudioMarcher\shader_loading.cpp(52,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  utils.cpp
+  Generating Code...
+  glad.c
+  sound_processing.cpp
+C:\Users\foura\Documents\Visualizer\AudioMarcher\INIReader.h(159,3): error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'sound_processing.cpp')
+  
+C:\Users\foura\Documents\Visualizer\AudioMarcher\INIReader.h(281,10): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'sound_processing.cpp')
+  
